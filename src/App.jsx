@@ -25,7 +25,7 @@ ChartJS.register(
 );
 const App = () => {
   const size = useScreenSize();
-  console.log(size.width);
+  let width = size.width;
   const handleDrawImage = (chart) => {
     const { ctx } = chart;
     const image = new Image();
@@ -39,24 +39,24 @@ const App = () => {
         ctx.drawImage(image, xPos - 35, yPos - 100);
 
         // Añade un cuadro de texto debajo de cada punto
-        ctx.font = "20px Arial";
+        ctx.font = `${width > 600 ? width * 0.025 : width * 0.03}px Arial`;
         ctx.fillStyle = "black";
-        ctx.fillText(`Punto ${index + 1}`, xPos + 20, yPos + 40);
+        ctx.fillText(
+          `Punto ${index + 1}`,
+          xPos + 20,
+          yPos + (width > 600 ? 50 : 20)
+        );
       }
     });
   };
 
-  const getPointStyle = (datapoint, index) => {
+  const getPointStyle = (datapoint) => {
     const datasetLength = datapoint.chart.data.labels.length - 1;
-    const datasetLabel = datapoint.dataset.label;
-    // const datasetIndex = data[index].label.findIndex(
-    //   (dataset) => dataset.label === datasetLabel
-    // );
 
     const arrowImage = new Image();
     arrowImage.src = "./gray_arrow.png";
-    arrowImage.width = 35;
-    arrowImage.height = 50;
+    arrowImage.width = width * 0.035;
+    arrowImage.height = width * 0.05;
     const stylePointArray = [];
     for (let i = 0; i < datasetLength; i++) {
       stylePointArray.push("circle");
@@ -68,7 +68,7 @@ const App = () => {
 
   return (
     <>
-      <div style={{ height: "500px", width: "1000px" }}>
+      <div style={{ height: "500px", width: width }}>
         <Line
           data={{
             labels: data.map((data) => data.label),
@@ -79,7 +79,8 @@ const App = () => {
                 backgroundColor: "#848484",
                 borderColor: "#848484",
                 tension: 0.3,
-                pointRadius: 15,
+                // pointRadius: 15
+                pointRadius: width * 0.014,
                 // pointStyle: "triangle",
                 pointBackgroundColor: data.map((data) => {
                   if (data.value === "true") {
