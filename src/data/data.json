@@ -1,0 +1,32 @@
+[
+  {
+    "label": "Jan",
+    "revenue": 0,
+    "value": "true"
+  },
+  {
+    "label": "Feb",
+    "revenue": 4,
+    "value": "false"
+  },
+  {
+    "label": "Mar",
+    "revenue": 12,
+    "value": "true"
+  },
+  {
+    "label": "Apr",
+    "revenue": 24,
+    "value": "false"
+  },
+  {
+    "label": "May",
+    "revenue": 30,
+    "value": "true"
+  },
+  {
+    "label": "May",
+    "revenue": 31,
+    "value": "false"
+  }
+]
