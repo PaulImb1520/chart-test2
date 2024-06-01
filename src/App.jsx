@@ -44,8 +44,8 @@ const App = () => {
           chartImage,
           width > 600 ? xPos - width * 0.035 : xPos - width * 0.06,
           width > 600 ? yPos - width * 0.12 : yPos - width * 0.16,
-          width > 600 ? width * 0.07 : width * 0.1,
-          width > 600 ? width * 0.07 : width * 0.1
+          width > 600 ? width * 0.08 : width * 0.1,
+          width > 600 ? width * 0.08 : width * 0.1
         );
 
         // Añade un cuadro de texto debajo de cada punto
